@@ -1,0 +1,31 @@
+[package]
+name = "large-language-models"
+version = "0.0.1"
+edition = "2024"
+autoexamples = false
+autobenches = false
+autotests = false
+
+[package.metadata]
+cargo-args = ["-Zmtime-on-use", "-Zavoid-dev-deps", "-Zcustom_mir"]
+
+
+[[bin]]
+name = "unregulated-artificial-intelligence"
+path = "./large-language-models.rs"
+doctest = false
+bench = false
+doc = false
+test = false
+
+[[bin]]
+name = "llm"
+path = "./large-language-models.rs"
+doctest = false
+bench = false
+doc = false
+test = false
+
+[dependencies]
+clap = { version = "4.5.35", features = ["derive"] }
+rust-embed = "8.6.0"

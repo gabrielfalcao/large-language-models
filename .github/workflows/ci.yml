@@ -21,9 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
-          toolchain: "${{ matrix.toolchain }}"
+          toolchain: ${{ matrix.toolchain }}
           override: true
       - name: run
         uses: actions-rs/cargo@v1
         with:
-          command: run --bin "${{ matrix.bin }}"
+          command: run --bin ${{ matrix.bin }}

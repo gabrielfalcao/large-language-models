@@ -26,4 +26,4 @@ jobs:
       - name: run
         uses: actions-rs/cargo@v1
         with:
-          command: run --bin ${{ matrix.bin }}
+          command: cargo run --bin ${{ matrix.bin }}

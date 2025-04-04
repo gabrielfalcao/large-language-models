@@ -12,7 +12,7 @@ jobs:
   matrix:
     strategy:
       matrix:
-        bin: ["unregulated-artificial-intelligence", "llm", "deepseek", "openai"]
+        bin: ["unregulated-artificial-intelligence", "llm"]
         os: [ubuntu-latest, macos-latest]
         toolchain: ["stable", "nighly"]
 

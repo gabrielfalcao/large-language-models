@@ -1,0 +1,38 @@
+name: "Continuous Integration"
+
+on:
+  - push
+  - pull_request
+
+env:
+  CARGO_TERM_COLOR: "always"
+  RUST_BACKTRACE: "full"
+  RUSTFLAGS: "-C opt-level=0 -g"
+jobs:
+  ubuntu:
+    name: Run, Build and Test (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly-2025-03-24
+          override: true
+      - name: run
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+
+  macos:
+    name: Run, Build and Test (MacOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly-2025-03-24
+          override: true
+      - name: run
+        uses: actions-rs/cargo@v1
+        with:
+          command: run

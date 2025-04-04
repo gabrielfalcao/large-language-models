@@ -28,7 +28,7 @@ struct Gemini;
 
 #[derive(Parser)]
 struct Cli {
-    #[arg(short, long, default_value_t = 1337)]
+    #[arg(short, long, default_value_t = 373737)]
     pub count: u64,
 }
 fn exaust_rust_embed_llama(target: &mut File) -> Result<()> {

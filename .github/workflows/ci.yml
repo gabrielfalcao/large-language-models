@@ -14,15 +14,18 @@ jobs:
       matrix:
         bin: [unregulated-artificial-intelligence, llm]
         os: [ubuntu-latest, macos-latest]
-        toolchain: [stable, nighly]
+        toolchain:
+          - stable
+          - nightly
 
     name: "ZION, HEAR ME! ${{  matrix.bin }}@${{ matrix.os }}"
     runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v3
-      # - uses: actions-rs/toolchain@v1
-      #     toolchain: ${{ matrix.toolchain }}
-      #     override: true
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ matrix.toolchain }}
+          override: true
       - name: run
         uses: actions-rs/cargo@v1
         with:

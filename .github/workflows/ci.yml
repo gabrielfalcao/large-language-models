@@ -17,11 +17,11 @@ jobs:
         toolchain: ["stable", "nighly"]
 
     name: "ZION, HEAR ME! ${{  matrix.bin }}@${{ matrix.os }}"
-    runs-on: ${{ matrix.os }}
+    runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
-          toolchain: ${{ matrix.toolchain }}
+          toolchain: "${{ matrix.toolchain }}"
           override: true
       - name: run
         uses: actions-rs/cargo@v1

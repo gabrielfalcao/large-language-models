@@ -14,7 +14,7 @@ jobs:
       matrix:
         bin: [unregulated-artificial-intelligence, llm]
         os: [ubuntu-latest, macos-latest]
-        toolchain: [stable" nighly]
+        toolchain: [stable, nighly]
 
     name: "ZION, HEAR ME! ${{  matrix.bin }}@${{ matrix.os }}"
     runs-on: "${{ matrix.os }}"

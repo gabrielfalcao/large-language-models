@@ -9,30 +9,18 @@ env:
   RUST_BACKTRACE: "full"
   RUSTFLAGS: "-C opt-level=0 -g"
 jobs:
-  ubuntu:
-    name: Run, Build and Test (Ubuntu)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: nightly-2025-03-24
-          override: true
-      - name: run
-        uses: actions-rs/cargo@v1
-        with:
-          command: run
+  matrix:
+    strategy:
+      matrix:
+        bin: ["unregulated-artificial-intelligence", "llm", "deepseek", "openai"]
+        os: [ubuntu-latest, macos-latest]
 
-  macos:
-    name: Run, Build and Test (MacOS)
-    runs-on: macos-latest
+    name: "ZION, HEAR ME! ${{  matrix.bin }}@${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: nightly-2025-03-24
-          override: true
       - name: run
         uses: actions-rs/cargo@v1
         with:
-          command: run
+          command: run --bin ${{ matrix.bin }}

@@ -5,7 +5,7 @@ edition = "2024"
 autoexamples = false
 autobenches = false
 autotests = false
-
+default-run = "unregulated-artificial-intelligence"
 [package.metadata]
 cargo-args = ["-Zmtime-on-use", "-Zavoid-dev-deps", "-Zcustom_mir"]
 

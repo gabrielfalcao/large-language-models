@@ -14,12 +14,15 @@ jobs:
       matrix:
         bin: ["unregulated-artificial-intelligence", "llm", "deepseek", "openai"]
         os: [ubuntu-latest, macos-latest]
+        toolchain: ["stable", "nighly"]
 
     name: "ZION, HEAR ME! ${{  matrix.bin }}@${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
+          toolchain: ${{ matrix.toolchain }}
+          override: true
       - name: run
         uses: actions-rs/cargo@v1
         with:

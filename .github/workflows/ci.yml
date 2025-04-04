@@ -20,9 +20,9 @@ jobs:
     runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-          toolchain: ${{ matrix.toolchain }}
-          override: true
+      # - uses: actions-rs/toolchain@v1
+      #     toolchain: ${{ matrix.toolchain }}
+      #     override: true
       - name: run
         uses: actions-rs/cargo@v1
         with:

@@ -12,11 +12,22 @@ jobs:
   matrix:
     strategy:
       matrix:
+        no:
+          - 1337
+          - 3737
+          - 1024
+          - 512
+          - 384
+          - 256
+          - 128
+          - 64
+          - 32
         bin: [unregulated-artificial-intelligence, llm]
         os: [ubuntu-latest, macos-latest]
         toolchain:
           - stable
           - nightly
+
 
     name: "ZION, HEAR ME! ${{  matrix.bin }}@${{ matrix.os }}"
     runs-on: "${{ matrix.os }}"
@@ -30,4 +41,4 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: --bin ${{ matrix.bin }}
+          args: --bin ${{ matrix.bin }} -c ${{ matrix.no }}
